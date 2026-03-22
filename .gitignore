@@ -1,0 +1,33 @@
+# Sensitive files
+*.key
+*.pem
+*.crt
+*password*
+*secret*
+.npmrc
+
+# Machine-specific configs
+.Xauthority
+ICEauthority
+machine-id
+
+# Cache and temp files
+**/cache/**
+**/Cache/**
+*.cache
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Local overrides (create these for machine-specific configs)
+*-local
+*.local
+
+# Stow backup files
+*.stow-backup
