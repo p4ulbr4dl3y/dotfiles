@@ -2,12 +2,12 @@
  * Waybar CSS for HYPRLAND - Catppuccin Mocha Blue Theme
  * =========================================================================== */
 
-/* --- CATPPUCCIN MOCHA COLORS --- */
-@define-color base   #1e1e2e;
-@define-color mantle #181825;
-@define-color crust  #11111b;
+/* --- ADW DARK BACKGROUND + CATPPUCCIN ACCENTS --- */
+@define-color base   #1d1d20; /* Dark Adwaita View BG */
+@define-color mantle #19191b;
+@define-color crust  #141416;
 
-@define-color text     #cdd6f4;
+@define-color text     #cdd6f4; /* Catppuccin Text */
 @define-color subtext0 #a6adc8;
 @define-color subtext1 #bac2de;
 
@@ -19,7 +19,7 @@
 @define-color overlay1 #7f849c;
 @define-color overlay2 #9399b2;
 
-@define-color blue      #89b4fa;
+@define-color blue      #89b4fa; /* Catppuccin Blue */
 @define-color sapphire  #74c7ec;
 @define-color lavender  #b4befe;
 @define-color red       #f38ba8;
@@ -141,4 +141,15 @@ tooltip label {
     padding: 6px 10px;
     color: @text;
     font-size: 13px;
+}
+
+/* --- V2RAYA MODULE --- */
+#custom-v2raya.connected {
+    color: @green;
+}
+#custom-v2raya.disconnected {
+    color: @peach;
+}
+#custom-v2raya.stopped {
+    color: @overlay0;
 }

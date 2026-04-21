@@ -15,6 +15,7 @@
         "memory",
         "battery",
         "network",
+        "custom/v2raya",
         "bluetooth",
         "pulseaudio",
         "backlight",
@@ -22,26 +23,12 @@
         "clock"
     ],
 
-    // -------------------------------------------------------------------------
-    // Modules
-    // -------------------------------------------------------------------------
-
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "sort-by-number": true,
         "on-click": "activate",
-        "format": "{icon}",
-        "format-icons": {
-            "urgent": "",
-            "active": "",
-            "default": ""
-        }
-    },
-
-    "hyprland/submap": {
-        "format": "<span style=\"italic\">{}</span>",
-        "tooltip": false
+        "format": "{name}"
     },
 
     "hyprland/language": {
@@ -58,10 +45,7 @@
         "format-icons": {
             "activated": "󰒳",
             "deactivated": "󰒲"
-        },
-        "tooltip": true,
-        "tooltip-format-activated": "Screen lock disabled",
-        "tooltip-format-deactivated": "Screen lock enabled"
+        }
     },
 
     "battery": {
@@ -72,28 +56,25 @@
         },
         "format-charging": "󰂄 {capacity}%",
         "format": "{icon} {capacity}%",
-        "format-icons": ["󱃍", "󰁺", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "tooltip": true
+        "format-icons": ["󱃍", "󰁺", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
 
     "clock": {
         "interval": 60,
         "format": "{:%e %b %Y %H:%M}",
-        "tooltip": true,
-        "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>",
-        "on-click": "footclient -e calcurse"
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt>{calendar}</tt>"
     },
 
     "cpu": {
         "interval": 10,
         "format": "󰘚 {usage}%",
-        "states": {"warning": 70, "critical": 90},
+        "on-click": "footclient -a btop -e btop"
     },
 
     "memory": {
         "interval": 10,
         "format": "󰍛 {percentage}%",
-        "states": {"warning": 70, "critical": 90},
+        "on-click": "footclient -a btop -e btop"
     },
 
     "network": {
@@ -103,32 +84,37 @@
         "format-disconnected": "󰖪",
         "format-disabled": "󰀝",
         "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-        "tooltip-format": "{icon} {ifname}: {ipaddr}",
+        "tooltip-format-wifi": "{icon} {essid}: {ipaddr}",
+        "tooltip-format-ethernet": "{icon} {ifname}: {ipaddr}",
+        "tooltip-format-disconnected": "Disconnected",
+        "tooltip-format-disabled": "Disabled",
         "on-click": "$HOME/.config/hypr/scripts/wifi-menu.sh"
+    },
+
+    "custom/v2raya": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "/home/yegor/.config/waybar/scripts/v2raya-status.sh",
+        "interval": 5,
+        "on-click": "footclient -a v2raya-tui -e /home/yegor/projects/v2raya-tui/target/debug/v2raya-tui",
+        "on-click-right": "/home/yegor/.config/waybar/scripts/v2raya-toggle.sh",
+        "tooltip": true
     },
 
     "backlight": {
         "format": "{icon} {percent}%",
-        "format-icons": ["󰃞", "󰃟", "󰃠"],
-        "on-scroll-up": "brightnessctl -e4 -n2 set 5%+",
-        "on-scroll-down": "brightnessctl -e4 -n2 set 5%-"
+        "format-icons": ["󰃞", "󰃟", "󰃠"]
     },
 
     "pulseaudio": {
         "scroll-step": 5,
-        "format": "{icon} {volume}%{format_source}",
-        "format-muted": "󰖁 {format_source}",
-        "format-source": "",
-        "format-source-muted": " 󰍭",
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁",
         "format-icons": {
             "headphone": "󰋋",
             "headset": "󰋎",
             "default": ["󰕿", "󰖀", "󰕾"]
-        },
-        "on-click": "footclient -e pulsemixer",
-        "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+",
-        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+        }
     },
 
     "tray": {
@@ -138,13 +124,9 @@
 
     "bluetooth": {
         "format": "󰂯",
-        "format-disabled": "󰂲",
-        "on-click": "$HOME/.config/hypr/scripts/bluetooth-menu.sh",
-        "on-click-right": "rfkill toggle bluetooth",
-        "tooltip-format": "{}"
+        "format-disabled": "󰂲"
     },
 
-    // Custom script for displaying screen recording indicator
     "custom/wf-recorder": {
         "interval": "once",
         "return-type": "json",

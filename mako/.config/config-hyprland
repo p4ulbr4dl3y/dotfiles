@@ -6,9 +6,9 @@ margin=20,20,20,20
 # Position: notifications will appear in the top-right corner
 anchor=top-right
 
-# --- APPEARANCE (Catppuccin Mocha Blue) ---
+# --- APPEARANCE (Hybrid: Adw BG + Catppuccin) ---
 # Base background
-background-color=#1e1e2e
+background-color=#1d1d20
 # Text color
 text-color=#cdd6f4
 # Blue accent

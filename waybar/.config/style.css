@@ -47,6 +47,7 @@ window#waybar {
 #pulseaudio,
 #network,
 #battery,
+#custom-v2raya,
 #custom-power {
     background-color: @base;
     color: @text;
@@ -127,6 +128,7 @@ window#waybar {
     animation-direction: alternate;
 }
 
+#custom-v2raya,
 #custom-power {
     color: @red;
     padding-right: 15px;
@@ -140,4 +142,21 @@ window#waybar {
         background-color: @text;
         color: @red;
     }
+}
+
+/* --- V2RAYA MODULE --- */
+#custom-v2raya {
+    color: @blue;
+}
+
+#custom-v2raya.connected {
+    color: @green;
+}
+
+#custom-v2raya.disconnected {
+    color: @peach;
+}
+
+#custom-v2raya.stopped {
+    color: @overlay0;
 }

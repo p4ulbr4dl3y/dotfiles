@@ -25,6 +25,7 @@
         "hyprland/language",
         "pulseaudio",
         "network",
+        "custom/v2raya",
         "battery",
         "custom/power"
     ],
@@ -50,7 +51,7 @@
         "rewrite": {
             "(.*) - foot": " $1",
             "(.*) - Mozilla Firefox": " $1",
-            "v": "󰇄 Desktop" // When no windows
+            "v": "󰇄 Desktop"
         }
     },
 
@@ -101,6 +102,16 @@
         "format-linked": "󰈀 {ifname} (No IP)",
         "format-disconnected": "⚠ Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+
+    "custom/v2raya": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "~/.config/waybar/scripts/v2raya-status.sh",
+        "interval": 5,
+        "on-click": "xdg-open http://localhost:2017",
+        "on-click-right": "systemctl restart v2raya",
+        "tooltip": true
     },
 
     "battery": {

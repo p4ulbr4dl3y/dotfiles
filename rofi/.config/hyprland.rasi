@@ -1,14 +1,21 @@
 /*****
- * Rofi Theme - Catppuccin Mocha Blue
+ * Rofi Theme - Adwaita Dark (English)
  *****/
+
+configuration {
+    display-drun: "Apps";
+    display-run: "Run";
+    display-window: "Window";
+    display-emoji: "Emoji";
+}
 
 * {
     /* Настройки шрифта */
     font: "JetBrainsMono NF 12";
 
-    /* --- ЦВЕТОВАЯ ПАЛИТРА CATPPUCCIN MOCHA BLUE --- */
+    /* --- ЦВЕТОВАЯ ПАЛИТРА HYBRID (ADW BG + CATPPUCCIN) --- */
     /* Base - основной фон */
-    bg-base:        #1e1e2e;
+    bg-base:        #1d1d20;
     /* Surface0 - фон для строки поиска */
     bg-alt:         #313244;
 
@@ -60,8 +67,8 @@ prompt {
 
 /* Поле, куда ты печатаешь текст */
 entry {
-    placeholder:      "Поиск...";
-    placeholder-color: #a6adc8; /* Subtext0 */
+    placeholder:      "Search...";
+    placeholder-color: #a6adc8; /* Catppuccin Subtext0 */
     cursor:           text;
 }
 
